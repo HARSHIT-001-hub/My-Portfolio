@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harshit P Tripathi | Web Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #7f8c8d;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1) 0%, rgba(231, 76, 60, 0.1) 100%);
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-text {
+            flex: 1;
+            padding-right: 50px;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .hero-text h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero-text h2 {
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .hero-text p {
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: var(--box-shadow);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* About Section */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .about-text {
+            flex: 1;
+            padding-right: 50px;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .skills {
+            margin-top: 30px;
+        }
+
+        .skills h4 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 5px;
+            transition: width 1s ease;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--light-color);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 50px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+        }
+
+        /* Experience Section */
+        .experience-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid transparent;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            margin: 0 10px;
+        }
+
+        .tab-btn.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background-color: var(--primary-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            left: 0;
+            padding-right: 70px;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            left: 50%;
+            padding-left: 70px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--primary-color);
+        }
+
+        .timeline-content {
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    position: relative;
+}
+
+        .timeline-date {
+            font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+            
+        }
+
+        .timeline-content h3 {
+            font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--dark-color);
+        }
+
+        .timeline-content p {
+            color: var(--text-light);
+        }
+
+
+        .institution {
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+}
+
+.timeline-details {
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+.timeline-details li {
+    margin-bottom: 8px;
+    color: var(--text-light);
+}
+
+.hackathon-list {
+    margin-top: 15px;
+}
+
+.hackathon-item {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.hackathon-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.hackathon-item h4 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: var(--dark-color);
+}
+
+.hackathon-item p {
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+/* Dark Mode Adjustments */
+body.dark-mode .timeline-content {
+    background-color: #2d2d2d;
+    border: 1px solid #444;
+}
+
+body.dark-mode .hackathon-item {
+    border-bottom-color: #444;
+}
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .project-info p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            padding: 5px 10px;
+            background-color: var(--light-color);
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--text-color);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-links a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--light-color);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 18px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer-content p {
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .footer-links li {
+            margin: 0 15px;
+        }
+
+        .footer-links a {
+            color: white;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        /* Theme Toggle Styles */
+.theme-toggle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.toggle-checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.toggle-label {
+    width: 50px;
+    height: 26px;
+    background-color: var(--dark-color);
+    display: flex;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    position: relative;
+    cursor: pointer;
+    transform: scale(1);
+    transition: var(--transition);
+}
+
+.toggle-ball {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+}
+
+.toggle-checkbox:checked + .toggle-label .toggle-ball {
+    transform: translateX(24px);
+}
+
+.toggle-label i {
+    color: white;
+    font-size: 12px;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --light-color: #1a1a1a;
+    --dark-color: #ecf0f1;
+    --text-color: #f5f5f5;
+    --text-light: #b0b0b0;
+    background-color: #121212;
+    color: var(--text-color);
+}
+
+body.dark-mode header,
+body.dark-mode .service-card,
+body.dark-mode .project-card,
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+    background-color: #1e1e1e;
+    color: var(--text-color);
+}
+
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+    border-color: #444;
+    background-color: #2d2d2d;
+    color: var(--text-color);
+}
+
+body.dark-mode .tag {
+    background-color: #333;
+    color: var(--text-color);
+}
+
+body.dark-mode .skill-bar {
+    background-color: #444;
+}
+
+body.dark-mode footer {
+    background-color: #1a1a1a;
+}
+
+
+#typewriter-text::after {
+    content: '';
+    animation: blink 1s step-end infinite;
+}
+
+#typewriter-subtext::after {
+    content: '';
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Adjust hamburger menu for dark mode */
+@media (max-width: 768px) {
+    body.dark-mode .nav-links {
+        background-color: #1e1e1e;
+    }
+}
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content,
+            .about-content {
+                flex-direction: column;
+            }
+
+            .hero-text,
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 50px;
+                text-align: center;
+            }
+
+            .hero-image,
+            .about-image {
+                margin-top: 30px;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                left: 70px;
+                padding-right: 0;
+                padding-left: 70px;
+                text-align: left;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 0;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 30px;
+                transition: var(--transition);
+                box-shadow: var(--box-shadow);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+                font-size: 24px;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            .hero-text h2 {
+                font-size: 20px;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .btn-group {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-text h1 {
+                font-size: 30px;
+            }
+
+            .section {
+                padding: 70px 0;
+            }
+
+            .section-title h2 {
+                font-size: 26px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Harshit<span>.</span></a>
+                            <!-- Add this div for theme toggle -->
+            <div class="theme-toggle">
+                <input type="checkbox" id="theme-toggle" class="toggle-checkbox">
+                <label for="theme-toggle" class="toggle-label">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                    <span class="toggle-ball"></span>
+                </label>
+            </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1  id="typewriter-text">Hi, I'm <span>Harshit P Tripathi </span></h1>
+                    <h2  >Web Developer </h2>
+                    <p>Passionate Web Developer dedicated to crafting innovative, responsive, and user-centric digital experiences.</p>
+                    <div class="btn-group">
+                        <a href="#contact" class="btn">Hire Me</a>
+                        <a href="#projects" class="btn btn-outline">My Work</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="001.jpg" alt="Harshit P Tripathi">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Get to know me better</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Who am I?</h3>
+                    <p>I'm Harshit P Tripathi, a passionate Web Developer currently pursuing my Bachelor of Engineering in Information Technology Engineering from Shree L.R Tiwari College of Engineering, Mumbai (Expected graduation: 2027).</p>
+                    <p>I specialize in creating responsive, user-friendly websites and applications using modern web technologies. My goal is to build digital experiences that are not only visually appealing but also highly functional and accessible.</p>
+                    <div class="skills">
+                        <h4>My Skills</h4>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>HTML/CSS</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>JavaScript</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>React</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>PHP/MySQL</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="002.jpg" alt="About Harshit">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Skills</h2>
+                <p>Technologies I work with</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <h3>Frontend Development</h3>
+                    <p>Proficient in HTML, CSS, JavaScript and frameworks like React and Bootstrap to create responsive and interactive user interfaces.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Backend Development</h3>
+                    <p>Skilled in PHP and MySQL for server-side programming, database management, and creating RESTful APIs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Responsive Design</h3>
+                    <p>Expertise in developing websites that work seamlessly across all devices from desktop to mobile.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Clean Code</h3>
+                    <p>Strong understanding of web standards and best practices for writing clean, maintainable code.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Performance Optimization</h3>
+                    <p>Experience in optimizing websites for fast load times and smooth operation.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Collaboration</h3>
+                    <p>Ability to work effectively with designers and other developers to ensure cohesive implementation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Experience Section -->
+<section class="section" id="experience">
+    <div class="container">
+        <div class="section-title">
+            <h2>My Experience</h2>
+            <p>Education and Achievements</p>
+        </div>
+        
+        <div class="experience-tabs">
+            <button class="tab-btn active" data-tab="education">Education</button>
+            <button class="tab-btn" data-tab="achievements">Achievements</button>
+        </div>
+        
+        <div class="tab-content active" id="education">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023 - 2027 (Expected)</div>
+                        <h3>Bachelor of Engineering in Information Technology</h3>
+                        <p class="institution">Shree L.R Tiwari College of Engineering, Mumbai</p>
+                        <ul class="timeline-details">
+                            <li>Currently pursuing degree with focus on web development and software engineering</li>
+                            <li>Relevant coursework: Web Technologies, Data Structures, Database Systems</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Add more education items if needed -->
+            </div>
+        </div>
+        
+        <div class="tab-content" id="achievements">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">July 2024</div>
+                        <h3>Web Development Internship</h3>
+                        <p class="institution">Shree L.R Tiwari College of Engineering</p>
+                        <ul class="timeline-details">
+                            <li>Developed responsive web applications using modern technologies</li>
+                            <li>Key Skills: HTML5, CSS3, JavaScript, React, PHP, MySQL</li>
+                            <li>Collaborated with team on college website redesign project</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">May 2024</div>
+                        <h3>HTML Certification</h3>
+                        <p class="institution">Mind Luster</p>
+                        <ul class="timeline-details">
+                            <li>Mastered semantic HTML5 markup and accessibility best practices</li>
+                            <li>Completed advanced course on modern web page structure</li>
+                            <li>Certification ID: ML-HTML2024-12345</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023 - 2024</div>
+                        <h3>Hackathon Participation</h3>
+                        <div class="hackathon-list">
+                            <div class="hackathon-item">
+                                <h4>Hackwarts: Mumbai ka Magic</h4>
+                                <p>Developed a community service matching platform (Team Lead)</p>
+                            </div>
+                            <div class="hackathon-item">
+                                <h4>Quasar 3.0: National Level</h4>
+                                <p>Created AI-powered inventory management system (Top 10 Finalist)</p>
+                            </div>
+                            <div class="hackathon-item">
+                                <h4>Edith - AI Agent</h4>
+                                <p>Built Telegram chatbot for educational assistance (Innovation Award)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+                <p>Some of my recent work</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="004.png" alt="Hospital Appointment Booking System">
+                    </div>
+                    <div class="project-info">
+                        <h3>Hospital Appointment Booking System</h3>
+                        <p>A platform for patients to book appointments with doctors efficiently.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="#"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Skill Hub">
+                    </div>
+                    <div class="project-info">
+                        <h3>Skill Hub</h3>
+                        <p>Skill exchange platform for seniors and juniors to learn from each other.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">MySQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/HARSHIT-001-hub/Skill-Hub.git"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="https://github.com/HARSHIT-001-hub/Skill-Hub.git"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="003.png" alt="AI Agent for Inventory Management">
+                    </div>
+                    <div class="project-info">
+                        <h3>AI Agent for Inventory Management</h3>
+                        <p>Telegram chatbot for managing inventory using AI and APIs.</p>
+                        <div class="project-tags">
+                            <span class="tag">n8n</span>
+                            <span class="tag">API</span>
+                            <span class="tag">AI</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="#"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+                <p>Get in touch</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Let's talk about your project</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>htripathi9324@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+91 9324825703</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Bhayandar, Mumbai, Maharashtra</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Follow Me</h3>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/harshit-tripathi-2b0ab027b/" class="social-link" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/HARSHIT-001-hub" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/htripathi93/" class="social-link" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Harshit P Tripathi. All rights reserved.</p>
+                <p>Designed and developed with ❤️ by Harshit</p>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Mobile Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Smooth scrolling for anchor links
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        const targetId = this.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+                        
+                        if (targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 80, // Adjust for fixed header
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+
+                // Tab functionality for experience section
+                const tabBtns = document.querySelectorAll('.tab-btn');
+                const tabContents = document.querySelectorAll('.tab-content');
+                
+                tabBtns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        // Remove active class from all buttons and contents
+                        tabBtns.forEach(btn => btn.classList.remove('active'));
+                        tabContents.forEach(content => content.classList.remove('active'));
+                        
+                        // Add active class to clicked button and corresponding content
+                        btn.classList.add('active');
+                        const tabId = btn.getAttribute('data-tab');
+                        document.getElementById(tabId).classList.add('active');
+                    });
+                });
+
+                // Animate skill bars when they come into view
+                const skillBars = document.querySelectorAll('.skill-progress');
+                
+                function animateSkillBars() {
+                    skillBars.forEach(bar => {
+                        const width = bar.parentElement.previousElementSibling.lastElementChild.textContent;
+                        if (isElementInViewport(bar)) {
+                            bar.style.width = width;
+                        }
+                    });
+                }
+                
+                function isElementInViewport(el) {
+                    const rect = el.getBoundingClientRect();
+                    return (
+                        rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+                        rect.bottom >= 0
+                    );
+                }
+
+                        // Simpler Typewriter Effect
+    document.addEventListener('DOMContentLoaded', function() {
+        const texts = [
+            { element: 'typewriter-text', text: "Hi, I'm <span>Harshit P Tripathi</span>", delay: 100 },
+            { element: 'typewriter-subtext', text: "Web Developer", delay: 50 }
+        ];
+        
+        texts.forEach((item, index) => {
+            const element = document.getElementById(item.element);
+            const fullText = item.text;
+            element.innerHTML = '';
+            
+            let i = 0;
+            function typeWriter() {
+                if (i < fullText.length) {
+                    element.innerHTML = fullText.substring(0, i + 1);
+                    i++;
+                    setTimeout(typeWriter, item.delay);
+                } else if (index === 0) {
+                    // Start the second typing effect after first completes
+                    const subtextElement = document.getElementById(texts[1].element);
+                    subtextElement.innerHTML = '';
+                    setTimeout(typeWriter.bind(null, texts[1]), 500);
+                }
+            }
+            
+            setTimeout(() => typeWriter(), index * 1500);
+        });
+    });
+
+
+                // Theme toggle functionality
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Check for saved user preference, if any, on load
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme) {
+    body.classList.add(currentTheme);
+    if (currentTheme === 'dark-mode') {
+        themeToggle.checked = true;
+    }
+}
+
+// Listen for toggle changes
+themeToggle.addEventListener('change', () => {
+    if (themeToggle.checked) {
+        body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark-mode');
+    } else {
+        body.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light-mode');
+    }
+});
+                
+                // Run on initial load and on scroll
+                window.addEventListener('load', animateSkillBars);
+                window.addEventListener('scroll', animateSkillBars);
+            </script>
+        </body>
+        </html>
+
+            
